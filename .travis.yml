@@ -1,0 +1,10 @@
+language: java
+script: mvn clean package
+branches:
+  only:
+  - master
+sudo: false
+jdk:
+  - oraclejdk8
+  - openjdk8
+os: linux
