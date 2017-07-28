@@ -14,7 +14,7 @@ import br.com.joaquimsn.querysearch.data.SearchRepository;
 
 public interface SearchService extends Serializable {
 
-	public default PageResult search(final JpqlFilter filter, SearchConfig searchConfig) {
+	public default PageResult search(JpqlFilter filter, SearchConfig searchConfig) {
 		Objects.requireNonNull(filter, "jpqlFilter is required");
 		Objects.requireNonNull(searchConfig, "SearchConfig is required");
 
@@ -25,7 +25,7 @@ public interface SearchService extends Serializable {
 		}
 	}
 
-	public default PageResult search(final SqlFilter filter, SearchConfig searchConfig) {
+	public default PageResult search(SqlFilter filter, SearchConfig searchConfig) {
 		Objects.requireNonNull(filter, "SqlFilter is required");
 		Objects.requireNonNull(searchConfig, "SearchConfig is required");
 
@@ -36,7 +36,7 @@ public interface SearchService extends Serializable {
 		}
 	}
 
-	public default List<?> search(final JpqlFilter filter) throws RuntimeException {
+	public default List<?> search(JpqlFilter filter) {
 		Objects.requireNonNull(filter, "jpqlFilter is required");
 
 		try {
@@ -46,7 +46,7 @@ public interface SearchService extends Serializable {
 		}
 	}
 
-	public default List<?> search(final SqlFilter filter) throws RuntimeException {
+	public default List<?> search(SqlFilter filter) {
 		Objects.requireNonNull(filter, "sqlFilter is required");
 
 		try {

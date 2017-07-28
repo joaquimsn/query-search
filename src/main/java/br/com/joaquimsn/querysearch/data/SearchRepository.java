@@ -22,7 +22,7 @@ import br.com.joaquimsn.querysearch.beans.SearchConfig;
  */
 public interface SearchRepository {
 	
-	public default PageResult search(JpqlFilter filter, SearchConfig searchConfig) throws PersistenceException {
+	public default PageResult search(JpqlFilter filter, SearchConfig searchConfig) {
 		Query querySearch = setParameters(getQueryJpql(makeOrderBy(filter, searchConfig)), filter.parameters());
 		Query queryCount = setParameters(getQueryJpql(filter.buildQueryCount()), filter.parameters());
 
@@ -39,7 +39,7 @@ public interface SearchRepository {
 	 * @autor joaquim.sneto
 	 * @Created Jul 12, 2017 - 10:46:49 AM
 	 */
-	public default List<?> search(JpqlFilter filter) throws PersistenceException {
+	public default List<?> search(JpqlFilter filter) {
 		Query querySearch = setParameters(getQueryJpql(filter.buildQuery()), filter.parameters());
 
 		return querySearch.getResultList();
@@ -52,13 +52,13 @@ public interface SearchRepository {
 	 * @autor joaquim.sneto
 	 * @Created Jul 27, 2017 - 10:42:49 AM
 	 */
-	public default List<?> search(SqlFilter filter) throws PersistenceException {
+	public default List<?> search(SqlFilter filter) {
 		Query querySearch = setParameters(getQueryNativeQuery(filter.buildQuery()), filter.parameters());
 
 		return querySearch.getResultList();
 	}
 
-	public default PageResult search(SqlFilter filter, SearchConfig searchConfig) throws PersistenceException {
+	public default PageResult search(SqlFilter filter, SearchConfig searchConfig) {
 		Query querySearch = setParameters(getQueryNativeQuery(makeOrderBy(filter, searchConfig)), filter.parameters());
 		Query queryCount = setParameters(getQueryNativeQuery(filter.buildQueryCount()), filter.parameters());
 

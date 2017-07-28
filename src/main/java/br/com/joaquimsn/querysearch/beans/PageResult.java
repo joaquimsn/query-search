@@ -2,6 +2,7 @@ package br.com.joaquimsn.querysearch.beans;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 public class PageResult {
 	public static final int DEFAULT_MAX_PAGE_SIZE = 10;
@@ -11,6 +12,9 @@ public class PageResult {
 	private int pageSize;
 
 	private PageResult(BigDecimal totalCount, List<?> data, int pageSize) {
+		Objects.requireNonNull(totalCount);
+		checkConsistencyBetweenTotalCounAndData(totalCount, data);
+		
 		this.totalCount = totalCount;
 		this.data = data;
 		this.pageSize = pageSize;
@@ -18,6 +22,12 @@ public class PageResult {
 
 	public static PageResult of(BigDecimal totalCount, List<?> data, int pageSize) {
 		return new PageResult(totalCount, data, pageSize);
+	}
+	
+	private void checkConsistencyBetweenTotalCounAndData(BigDecimal totalCount, List<?> data) {
+		if (totalCount.longValue() > 0 && (Objects.isNull(data) || data.isEmpty())) {
+			throw new RuntimeException("The totalCount is greater than 0, but data is empty");
+		}
 	}
 
 	public BigDecimal getTotalCount() {
@@ -29,7 +39,7 @@ public class PageResult {
 	}
 
 	public int getMaxPageSize() {
-		return pageSize != 0 ? pageSize : DEFAULT_MAX_PAGE_SIZE;
+		return pageSize > 0 ? pageSize : DEFAULT_MAX_PAGE_SIZE;
 	}
 
 	@Override

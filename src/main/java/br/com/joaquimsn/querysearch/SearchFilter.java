@@ -3,9 +3,6 @@ package br.com.joaquimsn.querysearch;
 import java.util.Map;
 
 public interface SearchFilter {
-	static final String ORDER_BY_DESC = "DESC";
-	static final String ORDER_BY_ASC = "ASC";
-	
 	public String queryFilter();
 
 	public String queryCount();
@@ -26,7 +23,7 @@ public interface SearchFilter {
 		return null;
 	}
 
-	public default String defaultSortType() {
-		return ORDER_BY_ASC;
+	public default SortType defaultSortType() {
+		return SortType.ASC;
 	}
 }

@@ -3,6 +3,7 @@ package br.com.joaquimsn.querysearch.beans;
 import java.util.Objects;
 
 import br.com.joaquimsn.querysearch.SearchFilter;
+import br.com.joaquimsn.querysearch.SortType;
 
 /**
  * @author joaquim.sneto
@@ -15,25 +16,20 @@ public class SearchConfig {
 	private String sortType;
 	private boolean hasOrderBy = false;
 
-	private SearchConfig(int page, int maxPageSize, String orderBy, String sortType) {
+	private SearchConfig(int page, int maxPageSize, String orderBy, SortType sortType) {
+		this(page, maxPageSize);
+		
 		Objects.requireNonNull(orderBy);
-		Objects.requireNonNull(sortType);
-		Objects.requireNonNull(sortType, "Parm method required");
+		Objects.requireNonNull(sortType, "Param method required");
 
-		if (!sortType.toUpperCase().equals("ASC") && !sortType.toUpperCase().equals("DESC")) {
-			throw new RuntimeException("method accepted ASC or DESC");
-		}
-
-		this.page = page;
-		this.maxPageSize = maxPageSize;
 		this.orderBy = orderBy;
-		this.sortType = sortType;
+		this.sortType = sortType.getSortOrder();
 		this.hasOrderBy = true;
 	}
 
 	private SearchConfig(int page, int maxPageSize) {
-		this.page = page;
-		this.maxPageSize = maxPageSize;
+		this.page = (page <= 0 ? 1 : page);
+		this.maxPageSize = (maxPageSize <= 0 ? PageResult.DEFAULT_MAX_PAGE_SIZE : maxPageSize);
 	}
 
 	/**
@@ -45,8 +41,8 @@ public class SearchConfig {
 	 * @autor joaquim.sneto
 	 * @Created Jul 12, 2017 - 1:15:18 PM
 	 */
-	public static SearchConfig of(int page, int maxPageSize, String orderBy, String sortType) {
-		return new SearchConfig((page <= 0 ? 1 : page), (maxPageSize <= 0 ? PageResult.DEFAULT_MAX_PAGE_SIZE : maxPageSize), orderBy, sortType);
+	public static SearchConfig of(int page, int maxPageSize, String orderBy, SortType sortType) {
+		return new SearchConfig(page, maxPageSize, orderBy, sortType);
 	}
 
 	/**
@@ -59,7 +55,7 @@ public class SearchConfig {
 	 * @autor joaquim.sneto
 	 * @Created Jul 11, 2017 - 8:30:40 PM
 	 */
-	public static SearchConfig of(int page, String orderBy, String sortType) {
+	public static SearchConfig of(int page, String orderBy, SortType sortType) {
 		return new SearchConfig(page, PageResult.DEFAULT_MAX_PAGE_SIZE, orderBy, sortType);
 	}
 
@@ -73,7 +69,7 @@ public class SearchConfig {
 	 * @Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page, int maxPageSize) {
-		return new SearchConfig((page <= 0 ? 1 : page), (maxPageSize <= 0 ? PageResult.DEFAULT_MAX_PAGE_SIZE : maxPageSize));
+		return new SearchConfig(page, maxPageSize);
 	}
 
 	/**
@@ -86,7 +82,7 @@ public class SearchConfig {
 	 * @Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page) {
-		return new SearchConfig((page <= 0 ? 1 : page), PageResult.DEFAULT_MAX_PAGE_SIZE);
+		return new SearchConfig(page, PageResult.DEFAULT_MAX_PAGE_SIZE);
 	}
 
 	/**
@@ -100,7 +96,7 @@ public class SearchConfig {
 	 * @Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page, String orderBy) {
-		return of(page, PageResult.DEFAULT_MAX_PAGE_SIZE, orderBy, SearchFilter.ORDER_BY_ASC);
+		return of(page, PageResult.DEFAULT_MAX_PAGE_SIZE, orderBy, SortType.ASC);
 	}
 
 	/**
@@ -137,8 +133,13 @@ public class SearchConfig {
 	 * @Created Jul 11, 2017 - 8:31:26 PM
 	 */
 	public String getOrderByCondition(SearchFilter filter) {
-		return hasOrderBy ? (" ORDER BY " + this.orderBy + " " + this.sortType)
-				: (Objects.nonNull(filter.defaultOrderBy()) ? (" ORDER BY " + filter.defaultOrderBy() + " " + filter.defaultSortType()) : (""));
+		if (hasOrderBy) {
+			return (" ORDER BY " + this.orderBy + " " + this.sortType);
+		} else if(Objects.nonNull(filter.defaultOrderBy())) {
+			return  (" ORDER BY " + filter.defaultOrderBy() + " " + filter.defaultSortType());
+		}
+		
+		return "";
 	}
 
 	@Override
