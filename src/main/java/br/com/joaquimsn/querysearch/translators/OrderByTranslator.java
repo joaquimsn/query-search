@@ -1,4 +1,4 @@
-package br.com.joaquimsn.querysearch.translators;
+package com.github.querysearch.translators;
 
 import java.util.Map;
 import java.util.Objects;

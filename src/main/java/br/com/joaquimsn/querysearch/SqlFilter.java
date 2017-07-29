@@ -1,6 +1,6 @@
-package br.com.joaquimsn.querysearch;
+package com.github.querysearch;
 
-import br.com.joaquimsn.querysearch.template.TemplateObjectQueryConstruct;
+import com.github.querysearch.template.TemplateObjectQueryConstruct;
 
 public interface SqlFilter extends SearchFilter {
 

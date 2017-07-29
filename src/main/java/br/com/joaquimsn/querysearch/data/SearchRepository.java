@@ -1,4 +1,4 @@
-package br.com.joaquimsn.querysearch.data;
+package com.github.querysearch.data;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -10,11 +10,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import br.com.joaquimsn.querysearch.JpqlFilter;
-import br.com.joaquimsn.querysearch.SearchFilter;
-import br.com.joaquimsn.querysearch.SqlFilter;
-import br.com.joaquimsn.querysearch.beans.PageResult;
-import br.com.joaquimsn.querysearch.beans.SearchConfig;
+import com.github.querysearch.JpqlFilter;
+import com.github.querysearch.SearchFilter;
+import com.github.querysearch.SqlFilter;
+import com.github.querysearch.beans.PageResult;
+import com.github.querysearch.beans.SearchConfig;
 
 /**
  * @author joaquim.sneto

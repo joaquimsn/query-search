@@ -1,6 +1,7 @@
 language: java
-script: mvn clean package
-after_success: coveralls
+script: mvn clean package -P test -DskipTests=true
+after_success:
+  - mvn clean test jacoco:report coveralls:report
 branches:
   only:
   - master

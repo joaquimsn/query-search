@@ -1,4 +1,4 @@
-package br.com.joaquimsn.querysearch.template;
+package com.github.querysearch.template;
 
 import javax.persistence.Query;
 

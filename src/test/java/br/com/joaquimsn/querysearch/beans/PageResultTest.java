@@ -1,4 +1,4 @@
-package br.com.joaquimsn.querysearch.beans;
+package com.github.querysearch.beans;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package br.com.joaquimsn.querysearch;
+package com.github.querysearch;
 
 public interface JpqlFilter extends SearchFilter {
 
