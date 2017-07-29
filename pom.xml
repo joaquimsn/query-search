@@ -77,43 +77,45 @@
 		<profile>
 			<id>test</id>
 			<build>
-				<plugin>
-					<!-- CODE COVERAGE -->
-					<groupId>org.jacoco</groupId>
-					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>${jacoco-maven-plugin.version}</version>
-					<executions>
-						<!-- Prepare execution with Surefire -->
-						<execution>
-							<id>pre-unit-test</id>
-							<goals>
-								<goal>prepare-agent</goal>
-							</goals>
-							<configuration>
-								<propertyName>surefireArgLine</propertyName>
-							</configuration>
-						</execution>
-						<!-- Generate report after tests are run -->
-						<execution>
-							<id>post-unit-test</id>
-							<phase>test</phase>
-							<goals>
-								<goal>report</goal>
-							</goals>
-						</execution>
-					</executions>
-					<!-- Specify classes to ignore in code coverage -->
-					<configuration>
-						<excludes>
-							<exclude>**/test/**</exclude>
-						</excludes>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eluder.coveralls</groupId>
-					<artifactId>coveralls-maven-plugin</artifactId>
-					<version>${coveralls-maven-plugin.version}</version>
-				</plugin>
+				<plugins>
+					<plugin>
+						<!-- CODE COVERAGE -->
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${jacoco-maven-plugin.version}</version>
+						<executions>
+							<!-- Prepare execution with Surefire -->
+							<execution>
+								<id>pre-unit-test</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+								<configuration>
+									<propertyName>surefireArgLine</propertyName>
+								</configuration>
+							</execution>
+							<!-- Generate report after tests are run -->
+							<execution>
+								<id>post-unit-test</id>
+								<phase>test</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+						<!-- Specify classes to ignore in code coverage -->
+						<configuration>
+							<excludes>
+								<exclude>**/test/**</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eluder.coveralls</groupId>
+						<artifactId>coveralls-maven-plugin</artifactId>
+						<version>${coveralls-maven-plugin.version}</version>
+					</plugin>
+				</plugins>
 			</build>
 		</profile>
 		
