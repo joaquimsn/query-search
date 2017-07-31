@@ -18,7 +18,7 @@ import com.github.querysearch.beans.SearchConfig;
 
 /**
  * @author joaquim.sneto
- * @Created Jul 11, 2017 - 8:36:31 PM
+ * Created Jul 11, 2017 - 8:36:31 PM
  */
 public interface SearchRepository {
 	
@@ -33,11 +33,11 @@ public interface SearchRepository {
 	}
 
 	/**
-	 * @param filter
+	 * @param filter an object implementation of @see SearchFilter
 	 * @return List with all data find
-	 * @throws PersistenceException
-	 * @autor joaquim.sneto
-	 * @Created Jul 12, 2017 - 10:46:49 AM
+	 * @throws PersistenceException from Query.getResultList()
+	 * @author joaquim.sneto
+	 * Created Jul 12, 2017 - 10:46:49 AM
 	 */
 	public default List<?> search(JpqlFilter filter) {
 		Query querySearch = setParameters(getQueryJpql(filter.buildQuery()), filter.parameters());
@@ -46,11 +46,11 @@ public interface SearchRepository {
 	}
 	
 	/**
-	 * @param filter
+	 * @param filter an object implementation of @see SearchFilter
 	 * @return List with all data find
-	 * @throws PersistenceException
-	 * @autor joaquim.sneto
-	 * @Created Jul 27, 2017 - 10:42:49 AM
+	 * @throws PersistenceException from Query.getResultList()
+	 * @author joaquim.sneto
+	 * Created Jul 27, 2017 - 10:42:49 AM
 	 */
 	public default List<?> search(SqlFilter filter) {
 		Query querySearch = setParameters(getQueryNativeQuery(filter.buildQuery()), filter.parameters());
@@ -107,28 +107,24 @@ public interface SearchRepository {
 	}
 
 	/**
-	 * Required implementation, use {@link EntityManager#createQuery(jpql)} for
-	 * build {@link Query}
+	 * Required implementation, use EntityManager#createQuery(jpql) for
+	 * build @see Query
 	 * 
-	 * @param jpql
-	 *            Query JPQL see more in
-	 *            {@link http://docs.oracle.com/html/E13946_04/ejb3_langref.html}
-	 * @return {@link Query}
-	 * @autor joaquim.sneto
-	 * @Created Jul 12, 2017 - 10:47:56 AM
+	 * @param jpql Query JPQL see more in <a href="http://docs.oracle.com/html/E13946_04/ejb3_langref.html">JPA docs</a>
+	 * @return  Query
+	 * @author joaquim.sneto
+	 * Created Jul 12, 2017 - 10:47:56 AM
 	 */
 	public Query getQueryJpql(String jpql);
 
 	/**
-	 * Required implementation, use
-	 * {@link EntityManager#createNativeQuery(sqlQuery)} for build {@link Query}
+	 * Required implementation, use EntityManager#createNativeQuery(sqlQuery) for 
+	 * build @see Query
 	 * 
-	 * @param jpql
-	 *            Query JPQL see more in
-	 *            {@link http://docs.oracle.com/html/E13946_04/ejb3_langref.html}
-	 * @return {@link Query}
-	 * @autor joaquim.sneto
-	 * @Created Jul 12, 2017 - 10:47:56 AM
+	 * @param sqlQuery Query JPQL see more in <a href="http://docs.oracle.com/html/E13946_04/ejb3_langref.html">JPA docs</a>
+	 * @return  Query
+	 * @author joaquim.sneto
+	 * Created Jul 12, 2017 - 10:47:56 AM
 	 */
 	public Query getQueryNativeQuery(String sqlQuery);
 }

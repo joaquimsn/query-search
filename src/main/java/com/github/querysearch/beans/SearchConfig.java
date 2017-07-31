@@ -7,7 +7,7 @@ import com.github.querysearch.SortType;
 
 /**
  * @author joaquim.sneto
- * @Created Jul 11, 2017 - 8:35:46 PM
+ * Created Jul 11, 2017 - 8:35:46 PM
  */
 public class SearchConfig {
 	private int page;
@@ -35,11 +35,11 @@ public class SearchConfig {
 	/**
 	 * @param page current page number
 	 * @param maxPageSize amount items per page
-	 * @param orderBy 
+	 * @param orderBy column name
 	 * @param sortType "ASC" or "DESC"
-	 * @return
-	 * @autor joaquim.sneto
-	 * @Created Jul 12, 2017 - 1:15:18 PM
+	 * @return instance of SearchConfig
+	 * @author joaquim.sneto
+	 * Created Jul 12, 2017 - 1:15:18 PM
 	 */
 	public static SearchConfig of(int page, int maxPageSize, String orderBy, SortType sortType) {
 		return new SearchConfig(page, maxPageSize, orderBy, sortType);
@@ -49,11 +49,11 @@ public class SearchConfig {
 	 * Basic configuration with properties default maxPageSize = 10
 	 * 
 	 * @param page current page number
-	 * @param orderBy 
+	 * @param orderBy column name
 	 * @param sortType "ASC" or "DESC"
-	 * @return
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 8:30:40 PM
+	 * @return instance of SearchConfig
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 8:30:40 PM
 	 */
 	public static SearchConfig of(int page, String orderBy, SortType sortType) {
 		return new SearchConfig(page, PageResult.DEFAULT_MAX_PAGE_SIZE, orderBy, sortType);
@@ -64,9 +64,9 @@ public class SearchConfig {
 	 * 
 	 * @param page current page number
 	 * @param maxPageSize amount items per page
-	 * @return {@link SearchConfig}
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 7:16:08 PM
+	 * @return  SearchConfig
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page, int maxPageSize) {
 		return new SearchConfig(page, maxPageSize);
@@ -77,9 +77,9 @@ public class SearchConfig {
 	 * orderBy
 	 * 
 	 * @param page current page number
-	 * @return {@link SearchConfig}
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 7:16:08 PM
+	 * @return  SearchConfig
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page) {
 		return new SearchConfig(page, PageResult.DEFAULT_MAX_PAGE_SIZE);
@@ -90,10 +90,10 @@ public class SearchConfig {
 	 * ASC
 	 * 
 	 * @param page current page number
-	 * @param orderBy
-	 * @return {@link SearchConfig}
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 7:16:08 PM
+	 * @param orderBy column name
+	 * @return  SearchConfig
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 7:16:08 PM
 	 */
 	public static SearchConfig of(int page, String orderBy) {
 		return of(page, PageResult.DEFAULT_MAX_PAGE_SIZE, orderBy, SortType.ASC);
@@ -101,8 +101,8 @@ public class SearchConfig {
 
 	/**
 	 * @return currently page
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 8:34:26 PM
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 8:34:26 PM
 	 */
 	public int getPage() {
 		return page;
@@ -110,8 +110,8 @@ public class SearchConfig {
 
 	/**
 	 * @return Max items per page
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 8:35:25 PM
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 8:35:25 PM
 	 */
 	public int getMaxPageSize() {
 		return maxPageSize;
@@ -119,18 +119,18 @@ public class SearchConfig {
 
 	/**
 	 * @return the position of the first result to retrieve.
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 8:33:10 PM
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 8:33:10 PM
 	 */
 	public int getStartResult() {
 		return ((this.getPage() * this.getMaxPageSize()) - this.getMaxPageSize());
 	}
 
 	/**
-	 * @param filter
+	 * @param filter an object implementation of @see SearchFilter
 	 * @return empty if not have orderBy
-	 * @autor joaquim.sneto
-	 * @Created Jul 11, 2017 - 8:31:26 PM
+	 * @author joaquim.sneto
+	 * Created Jul 11, 2017 - 8:31:26 PM
 	 */
 	public String getOrderByCondition(SearchFilter filter) {
 		if (hasOrderBy) {

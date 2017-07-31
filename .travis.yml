@@ -2,9 +2,9 @@ language: java
 branches:
   only:
   - master
-script: mvn clean package -P test -DskipTests=true
+script: mvn clean package -P test
 after_success:
-  - mvn clean test -P test jacoco:report coveralls:report
+  - mvn jacoco:report coveralls:report
 sudo: false
 jdk:
   - oraclejdk8

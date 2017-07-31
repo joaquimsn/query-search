@@ -14,7 +14,7 @@ public enum SortType {
 	
 	/**
 	 * @param value sort type for order by
-	 * @return {@link SortType} if value is invalid then return default {@link SortType#ASC}
+	 * @return  SortType if value is invalid then return default @see SortType#ASC
 	 */
 	public static SortType enumByValue(String value) {
 		if (Objects.isNull(value) || (!SortType.ASC.getSortOrder().equals(value.toUpperCase()) && !SortType.DESC.getSortOrder().equals(value.toUpperCase()))) {
