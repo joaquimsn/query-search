@@ -2,9 +2,12 @@ language: java
 branches:
   only:
   - master
-script: mvn clean package -P test
+install:
+  - mvn test-compile -P test -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+  - mvn test -P test jacoco:report
 after_success:
-  - mvn jacoco:report coveralls:report
+  - mvn coveralls:report
 sudo: false
 jdk:
   - oraclejdk8
