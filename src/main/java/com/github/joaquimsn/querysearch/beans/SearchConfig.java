@@ -1,9 +1,9 @@
-package com.github.querysearch.beans;
+package com.github.joaquimsn.querysearch.beans;
 
 import java.util.Objects;
 
-import com.github.querysearch.SearchFilter;
-import com.github.querysearch.SortType;
+import com.github.joaquimsn.querysearch.SearchFilter;
+import com.github.joaquimsn.querysearch.SortType;
 
 /**
  * @author joaquim.sneto

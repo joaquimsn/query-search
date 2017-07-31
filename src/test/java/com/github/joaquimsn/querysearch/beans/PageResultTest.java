@@ -1,4 +1,4 @@
-package com.github.querysearch.beans;
+package com.github.joaquimsn.querysearch.beans;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.github.joaquimsn.querysearch.beans.PageResult;
 
 public class PageResultTest {
 	

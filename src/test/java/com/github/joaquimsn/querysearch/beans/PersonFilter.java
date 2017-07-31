@@ -1,7 +1,7 @@
-package com.github.querysearch.beans;
+package com.github.joaquimsn.querysearch.beans;
 
-import com.github.querysearch.AbstractJpqlSearchFilter;
-import com.github.querysearch.SortType;
+import com.github.joaquimsn.querysearch.AbstractJpqlSearchFilter;
+import com.github.joaquimsn.querysearch.SortType;
 
 public class PersonFilter extends AbstractJpqlSearchFilter  {
 	private static final long serialVersionUID = 3926878146414338882L;

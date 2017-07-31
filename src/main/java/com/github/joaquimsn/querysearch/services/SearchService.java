@@ -1,4 +1,4 @@
-package com.github.querysearch.services;
+package com.github.joaquimsn.querysearch.services;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.Objects;
 
 import javax.persistence.PersistenceException;
 
-import com.github.querysearch.JpqlFilter;
-import com.github.querysearch.SqlFilter;
-import com.github.querysearch.beans.PageResult;
-import com.github.querysearch.beans.SearchConfig;
-import com.github.querysearch.data.SearchRepository;
+import com.github.joaquimsn.querysearch.JpqlFilter;
+import com.github.joaquimsn.querysearch.SqlFilter;
+import com.github.joaquimsn.querysearch.beans.PageResult;
+import com.github.joaquimsn.querysearch.beans.SearchConfig;
+import com.github.joaquimsn.querysearch.data.SearchRepository;
 
 public interface SearchService extends Serializable {
 

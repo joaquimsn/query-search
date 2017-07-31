@@ -1,4 +1,4 @@
-package com.github.querysearch;
+package com.github.joaquimsn.querysearch;
 
 import java.util.Map;
 

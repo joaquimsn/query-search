@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github</groupId>
+	<groupId>com.github.joaquimsn</groupId>
 	<artifactId>querysearch</artifactId>
 	<version>0.1.0</version>
 	<packaging>jar</packaging>
@@ -37,6 +37,15 @@
 			<email>jsn.piata@gmail.com</email>
 			<url>http://joaquimsn.com</url>
 			<organization>Senac</organization>
+			<roles>
+				<role>all</role>
+			</roles>
+			<timezone>America/Sao_Paulo</timezone>
+		</developer>
+		<developer>
+			<id>rafaelpl.sis</id>
+			<name>Rafael Pereira Lima</name>
+			<email>rafaelpl.sis@gmail.com</email>
 			<roles>
 				<role>all</role>
 			</roles>

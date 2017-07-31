@@ -1,9 +1,9 @@
-package com.github.querysearch.beans;
+package com.github.joaquimsn.querysearch.beans;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.querysearch.SortType;
+import com.github.joaquimsn.querysearch.SortType;
 
 public class SearchConfigTest {
 	
