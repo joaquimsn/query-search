@@ -5,9 +5,9 @@ branches:
 install:
   - mvn test-compile -P test -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn test -P test jacoco:report
+  - mvn clean test -P test jacoco:report
 after_success:
-  - mvn coveralls:report
+  - mvn -P test coveralls:report
 sudo: false
 jdk:
   - oraclejdk8
