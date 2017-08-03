@@ -1,4 +1,4 @@
-package com.github.joaquimsn.querysearch.beans;
+package com.github.joaquimsn.querysearch.mock;
 
 import com.github.joaquimsn.querysearch.AbstractJpqlSearchFilter;
 import com.github.joaquimsn.querysearch.SortType;

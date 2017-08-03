@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.github.joaquimsn.querysearch.SortType;
+import com.github.joaquimsn.querysearch.mock.PersonFilter;
 
 public class SearchConfigTest {
 	
