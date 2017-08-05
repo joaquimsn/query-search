@@ -3,11 +3,16 @@ package com.github.joaquimsn.querysearch.services;
 import com.github.joaquimsn.querysearch.data.SearchRepository;
 
 public class SearchServiceImpl implements SearchService {
+	private static final long serialVersionUID = -7968284347534166829L;
 	
-	@Override
-	public SearchRepository getRepository() {
-		// TODO Auto-generated method stub
-		return null;
+	private SearchRepository repository;
+
+	public SearchServiceImpl(SearchRepository repository) {
+		this.repository = repository;
 	}
 
+	@Override
+	public SearchRepository getRepository() {
+		return repository;
+	}
 }

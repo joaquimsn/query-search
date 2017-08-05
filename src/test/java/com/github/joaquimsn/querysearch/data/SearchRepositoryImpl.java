@@ -1,19 +1,24 @@
 package com.github.joaquimsn.querysearch.data;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 public class SearchRepositoryImpl implements SearchRepository {
+	
+	private EntityManager entityManager;
+	
+	public SearchRepositoryImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	@Override
 	public Query getQueryJpql(String jpql) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery(jpql);
 	}
 
 	@Override
 	public Query getQueryNativeQuery(String sqlQuery) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createNativeQuery(sqlQuery);
 	}
 
 }

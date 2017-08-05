@@ -1,10 +1,13 @@
 package com.github.joaquimsn.querysearch.beans;
 
+import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.github.joaquimsn.querysearch.SearchFilter;
 import com.github.joaquimsn.querysearch.SortType;
-import com.github.joaquimsn.querysearch.mock.PersonFilter;
+import com.github.joaquimsn.querysearch.mock.PersonFilterJpql;
 
 public class SearchConfigTest {
 	
@@ -68,15 +71,48 @@ public class SearchConfigTest {
 	
 	@Test
 	public void useDefaultOrderBy() {
-		PersonFilter personFilter = new PersonFilter();
-		SearchConfig searchConfig = SearchConfig.of(1, PageResult.DEFAULT_MAX_PAGE_SIZE);
+		PersonFilterJpql personFilter = new PersonFilterJpql();
+		SearchConfig searchConfig = SearchConfig.of(1, "nameOfColumn");
 		Assert.assertNotEquals(searchConfig.getOrderByCondition(personFilter), "");
 	}
 	
 	@Test
 	public void useOrderByOfConfig() {
-		PersonFilter personFilter = new PersonFilter();
-		SearchConfig searchConfig = SearchConfig.of(1, PageResult.DEFAULT_MAX_PAGE_SIZE, "birthday", SortType.ASC);
+		PersonFilterJpql personFilter = new PersonFilterJpql();
+		SearchConfig searchConfig = SearchConfig.of(1, "birthday", SortType.ASC);
 		Assert.assertNotEquals(searchConfig.getOrderByCondition(personFilter), "");
+	}
+	
+	@Test
+	public void orderByNotImplement() {
+		SearchConfig searchConfig = SearchConfig.of(1);
+		SearchFilter filter = new SearchFilter() {
+			
+			@Override
+			public String queryFilter() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String queryCount() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Map<String, Object> parameters() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String filters() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		
+		Assert.assertEquals(searchConfig.getOrderByCondition(filter), "");
 	}
 }
