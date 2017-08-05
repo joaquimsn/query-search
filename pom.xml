@@ -14,10 +14,11 @@
 			<url>http://www.opensource.org/licenses/mit-license.php</url>
 		</license>
 	</licenses>
- 
+
 	<properties>
 		<hibernate-entitymanager.version>5.1.0.Final</hibernate-entitymanager.version>
 		<junit.version>4.12</junit.version>
+		<h2database.version>1.4.196</h2database.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -29,7 +30,7 @@
 		<coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
 		<jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
 	</properties>
-	
+
 	<developers>
 		<developer>
 			<id>joaquimsn</id>
@@ -68,6 +69,12 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2database.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -114,14 +121,14 @@
 						<groupId>org.jacoco</groupId>
 						<artifactId>jacoco-maven-plugin</artifactId>
 						<version>${jacoco-maven-plugin.version}</version>
-						 <executions>
-					        <execution>
-					            <id>prepare-agent</id>
-					            <goals>
-					                <goal>prepare-agent</goal>
-					            </goals>
-					        </execution>
-					    </executions>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.eluder.coveralls</groupId>
@@ -134,8 +141,8 @@
 				</plugins>
 			</build>
 		</profile>
-		
-		<!-- Deploy to  Sonatype Nexus Repository (OSSRH) -->
+
+		<!-- Deploy to Sonatype Nexus Repository (OSSRH) -->
 		<profile>
 			<id>release-sign</id>
 			<activation>
@@ -152,7 +159,7 @@
 						<version>${maven-source-plugin.version}</version>
 						<executions>
 							<execution>
-							<id>attach-sources</id>
+								<id>attach-sources</id>
 								<goals>
 									<goal>jar-no-fork</goal>
 								</goals>

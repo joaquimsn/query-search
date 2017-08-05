@@ -1,11 +1,15 @@
-package com.github.joaquimsn.querysearch.beans;
+package com.github.joaquimsn.querysearch.mock;
 
 import com.github.joaquimsn.querysearch.AbstractJpqlSearchFilter;
-import com.github.joaquimsn.querysearch.SortType;
 
-public class PersonFilter extends AbstractJpqlSearchFilter  {
+public class PersonFilterJpql extends AbstractJpqlSearchFilter  {
 	private static final long serialVersionUID = 3926878146414338882L;
-
+	
+	public void setInteger(Integer age) {
+		addAndFilter(" p.age = :age");
+		addParameter("age", age);
+	}
+	
 	@Override
 	public String queryFilter() {
 		return "SELECT p FROM Person p";
@@ -19,10 +23,5 @@ public class PersonFilter extends AbstractJpqlSearchFilter  {
 	@Override
 	public String defaultOrderBy() {
 		return "name";
-	}
-	
-	@Override
-	public SortType defaultSortType() {
-		return SortType.DESC;
 	}
 }

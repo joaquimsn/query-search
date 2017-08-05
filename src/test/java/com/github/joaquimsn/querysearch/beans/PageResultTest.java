@@ -43,7 +43,7 @@ public class PageResultTest {
 	
 	@Test
 	public void dataIsRequired() {
-		PageResult result = PageResult.of(BigDecimal.TEN, getDataMock(), 5);
+		PageResult result = PageResult.of(BigDecimal.TEN, getDataMock(), 0);
 		Assert.assertArrayEquals(result.getData().toArray(), getDataMock().toArray());
 	}
 	

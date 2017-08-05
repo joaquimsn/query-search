@@ -53,8 +53,9 @@ public interface SearchRepository {
 	 */
 	public default List<?> search(SqlFilter filter) {
 		Query querySearch = setParameters(getQueryNativeQuery(filter.buildQuery()), filter.parameters());
-
-		return querySearch.getResultList();
+		List<?> data = filter.buildTemplateResult().create(querySearch).build().getResultList();
+		
+		return data;
 	}
 
 	public default PageResult search(SqlFilter filter, SearchConfig searchConfig) {
