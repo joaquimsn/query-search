@@ -20,6 +20,7 @@ public class PageResultTest {
 	@Test
 	public void useDefaultPageSize() {
 		PageResult result = PageResult.of(BigDecimal.ONE, getDataMock(), 0);
+		result.toString();
 		Assert.assertEquals(result.getMaxPageSize(), PageResult.DEFAULT_MAX_PAGE_SIZE);
 	}
 	

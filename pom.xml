@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.joaquimsn</groupId>
 	<artifactId>querysearch</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<packaging>jar</packaging>
 	<name>Query Search</name>
 	<description>Implementation for make search based in JPQL or SQL and result in object</description>
@@ -19,6 +19,8 @@
 		<hibernate-entitymanager.version>5.1.0.Final</hibernate-entitymanager.version>
 		<junit.version>4.12</junit.version>
 		<h2database.version>1.4.196</h2database.version>
+		<mockito.version>2.0.2-beta</mockito.version>
+		<guice.version>4.1.0</guice.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -70,6 +72,18 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-all</artifactId>
+		    <version>${mockito.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.inject</groupId>
+		    <artifactId>guice</artifactId>
+		    <version>${guice.version}</version>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
