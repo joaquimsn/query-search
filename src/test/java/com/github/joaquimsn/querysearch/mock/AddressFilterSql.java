@@ -20,7 +20,7 @@ public class AddressFilterSql extends AbstractSqlSearchFilter {
 
 	@Override
 	public String queryFilter() {
-		return "SELECT * FROM ADDRESS a ";
+		return "SELECT a.id as id, a.state as state, a.city as city, a.zipcode as zipcode, a.street_address as streetAddress  FROM ADDRESS a ";
 	}
 
 	@Override
@@ -47,12 +47,11 @@ public class AddressFilterSql extends AbstractSqlSearchFilter {
 			@Override
 			public Query build() {
 				query.unwrap(SQLQuery.class)
-					.addScalar("ID", LongType.INSTANCE)
+					.addScalar("id", LongType.INSTANCE)
 					.addScalar("state", StringType.INSTANCE)
 					.addScalar("city", StringType.INSTANCE)
-					.addScalar("zipCode", StringType.INSTANCE)
-					.addScalar("street_address", StringType.INSTANCE)
-					.addEntity(Address.class);
+					.addScalar("zipcode", StringType.INSTANCE)
+					.addScalar("streetAddress", StringType.INSTANCE);
 				return query;
 			}
 			

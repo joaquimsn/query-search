@@ -24,6 +24,7 @@ public class SearchConfigTest {
 	@Test
 	public void useDefaultMaxPageSizeIfLessThenZero() {
 		SearchConfig searchConfig = SearchConfig.of(1, -1);
+		searchConfig.toString();
 		Assert.assertEquals(searchConfig.getMaxPageSize(), PageResult.DEFAULT_MAX_PAGE_SIZE);
 	}
 	
