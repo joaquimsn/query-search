@@ -6,7 +6,7 @@
 	<version>0.2.0</version>
 	<packaging>jar</packaging>
 	<name>Query Search</name>
-	<description>Implementation for make search based in JPQL or SQL and result in object</description>
+	<description>Make searching and pagination easy with Hibernate ORM using JPQL or SQL</description>
 	<url>https://github.com/joaquimsn/query-search/</url>
 	<licenses>
 		<license>
