@@ -24,7 +24,7 @@ Adicione a dependência no seu projeto
 ```
 
 ## Como usar
-1. Implemente a classe **SearchRepository** para prover uma instacia do objeto Query
+1. Implemente a classe **SearchRepository** para prover uma instância do objeto Query
 ```java
 public class SearchRepositoryImpl implements SearchRepository {
 	
@@ -54,7 +54,7 @@ public class SearchServiceImpl implements SearchService {
 }
 ```
 
-3. Agora é só implementar um filtro de sua escolha, use **AbstractSpqlSearchFilter** para paginação e consultas com sql, ou **AbstractJpqlSearchFilter** para trabalhar com entidades mapeadas
+3. Agora é só implementar um filtro, use **AbstractSpqlSearchFilter** para paginação e consultas com sql, ou **AbstractJpqlSearchFilter** para trabalhar com entidades mapeadas
 
 ## Veja um exemplo
 [Clique aqui para acessar os exemplos](https://github.com/joaquimsn/query-search/tree/master/examples) 
