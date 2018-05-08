@@ -6,6 +6,7 @@ Make searching and pagination easy with Hibernate ORM using JPQL or SQL
 [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=com.github.joaquimsn:querysearch)](https://sonarcloud.io/dashboard/index/com.github.joaquimsn:querysearch)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.joaquimsn/querysearch.svg)](http://mvnrepository.com/artifact/com.github.joaquimsn/querysearch)
 
+
 Query-search é uma lib criada para facilitar a implementação de consultas com paginação, construida em cima do ORM Hibernate com uma abordagem padronizada e flexível.
 
 ## Principais características
